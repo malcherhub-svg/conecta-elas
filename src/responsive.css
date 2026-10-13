@@ -1,0 +1,933 @@
+/* Responsive refinements for the narrative, platform, and chat. */
+img,
+svg {
+  max-width: 100%;
+}
+
+.platform-shell,
+.platform-main,
+.scene-inner,
+.story-inner {
+  min-width: 0;
+}
+
+.story-scene {
+  flex: 0 0 100vw;
+  width: 100vw;
+  min-width: 100vw;
+}
+
+.platform-main {
+  width: min(100%, 1400px);
+  margin-inline: auto;
+}
+
+.platform-nav button,
+.story-menu button {
+  white-space: nowrap;
+}
+
+.platform-page-heading,
+.platform-welcome,
+.platform-section,
+.platform-bottom-grid,
+.directory-controls,
+.profile-grid,
+.demo-project-grid,
+.chat-demo,
+.future-panel,
+.future-steps,
+.platform-quiz {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .story-scene {
+    padding-inline: clamp(28px, 5vw, 64px);
+  }
+
+  .opening-layout,
+  .historian-layout,
+  .bridge-layout,
+  .origin-layout,
+  .platform-gateway {
+    gap: clamp(24px, 4vw, 52px);
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
+    gap: 24px;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-grid,
+  .profile-grid,
+  .demo-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .journey {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 22px;
+  }
+
+  .journey-line {
+    display: none;
+  }
+
+  .platform-main {
+    padding-inline: clamp(24px, 4vw, 56px);
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .app,
+  .track {
+    height: 100dvh;
+    height: 100svh;
+  }
+
+  .story-scene {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100dvh;
+    height: 100svh;
+    padding: 76px 20px 92px;
+    scroll-snap-stop: always;
+  }
+
+  .story-inner {
+    width: 100%;
+    justify-content: flex-start;
+    padding-block: 8px 22px;
+  }
+
+  .story-topbar {
+    padding-inline: 16px;
+  }
+
+  .story-menu {
+    left: 12px;
+    right: 12px;
+    top: 62px;
+    width: auto;
+    max-height: calc(100svh - 78px);
+  }
+
+  .story-navigator {
+    max-width: calc(100vw - 20px);
+  }
+
+  .story-navigator .scene-dots {
+    max-width: min(42vw, 200px);
+  }
+
+  .opening-copy h1,
+  .historian-copy h2,
+  .history-intro h2,
+  .bridge-copy h2,
+  .origin-heading h2,
+  .pillars-heading h2,
+  .gateway-copy h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .story-kicker,
+  .historian-copy .story-kicker,
+  .historian-years,
+  .pioneer-meta,
+  .pioneer-copy>a,
+  .historian-image figcaption,
+  .historian-copy blockquote small {
+    font-size: 10px;
+    line-height: 1.45;
+    letter-spacing: .08em;
+  }
+
+  .opening-line,
+  .historian-bio,
+  .historian-copy blockquote p,
+  .bridge-copy>p:not(.story-kicker),
+  .origin-story p,
+  .origin-story .origin-lead,
+  .pillars-heading>p:last-child,
+  .pillar-card p,
+  .gateway-copy>p:not(.story-kicker) {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .pioneer-grid,
+  .pillars-grid,
+  .info-grid,
+  .feature-grid,
+  .profile-grid,
+  .demo-project-grid,
+  .platform-bottom-grid,
+  .future-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pioneer-card {
+    grid-template-columns: minmax(92px, 30%) minmax(0, 1fr);
+    min-height: 170px;
+  }
+
+  .pioneer-copy {
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .pioneer-copy h3 {
+    font-size: 20px;
+  }
+
+  .pioneer-copy>p {
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .platform-shell {
+    height: 100dvh;
+    height: 100svh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  .platform-header {
+    min-height: 62px;
+    height: auto;
+    padding: 9px 14px;
+    gap: 10px;
+  }
+
+  .platform-logo img {
+    width: auto;
+    max-width: min(34vw, 150px);
+    height: 36px;
+  }
+
+  .platform-header-copy {
+    min-width: 0;
+    padding-left: 10px;
+  }
+
+  .platform-header-copy span,
+  .platform-header-copy small {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .platform-back {
+    flex: 0 0 auto;
+    min-height: 42px;
+    font-size: 12px;
+  }
+
+  .platform-nav-wrap {
+    top: 62px;
+  }
+
+  .platform-nav {
+    gap: 4px;
+    padding-inline: 10px;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .platform-nav button {
+    min-height: 48px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .platform-main {
+    padding: 22px 18px 38px;
+  }
+
+  .platform-welcome {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 26px 21px 8px;
+  }
+
+  .platform-welcome h1 {
+    font-size: clamp(36px, 10vw, 50px);
+    overflow-wrap: anywhere;
+  }
+
+  .platform-welcome>div:first-child>p:not(.platform-kicker),
+  .platform-page-heading>p:last-child,
+  .platform-feature-card>p:not(.platform-kicker),
+  .profile-card>p:not(.profile-demo),
+  .demo-project-copy>p,
+  .future-panel p,
+  .platform-quiz>p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .platform-kicker,
+  .profile-demo,
+  .future-tag,
+  .chat-demo-label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .platform-page-heading h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    overflow-wrap: anywhere;
+  }
+
+  .platform-section-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .platform-section-title h2,
+  .platform-feature-card h2,
+  .future-panel h2,
+  .platform-quiz>h2 {
+    font-size: clamp(23px, 6vw, 32px);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .category-tile {
+    min-width: 0;
+    min-height: 76px;
+    grid-template-columns: 34px minmax(0, 1fr) 14px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .category-tile>b {
+    font-size: 12px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .directory-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .directory-search,
+  .directory-category,
+  .directory-search input,
+  .directory-category select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+  }
+
+  .profile-card,
+  .demo-project-copy,
+  .platform-feature-card,
+  .platform-quiz {
+    padding: 18px;
+  }
+
+  .profile-card h2,
+  .demo-project-copy h2 {
+    font-size: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-card-actions {
+    flex-wrap: wrap;
+  }
+
+  .profile-card-actions button {
+    flex: 1 1 130px;
+    min-height: 44px;
+  }
+
+  .demo-project-art {
+    height: clamp(150px, 48vw, 220px);
+  }
+
+  .chat-demo {
+    height: min(68svh, 620px);
+    min-height: 420px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chat-sidebar,
+  .chat-window {
+    min-width: 0;
+  }
+
+  .chat-sidebar {
+    padding: 16px;
+  }
+
+  .conversation-info {
+    min-width: 0;
+  }
+
+  .conversation-info>span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chat-person {
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .chat-person>div {
+    min-width: 0;
+  }
+
+  .chat-person>div>b,
+  .chat-person>div>small {
+    overflow-wrap: anywhere;
+  }
+
+  .fiction-badge {
+    flex: 0 0 auto;
+  }
+
+  .message-list {
+    min-height: 0;
+  }
+
+  .message-bubble {
+    max-width: min(88%, 440px);
+  }
+
+  .message-bubble p,
+  .chat-safety,
+  .chat-local-note {
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .chat-compose {
+    gap: 8px;
+  }
+
+  .chat-compose input {
+    min-width: 0;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .chat-compose button {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .future-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .platform-answers button {
+    min-height: 52px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .platform-footer {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .platform-footer>span {
+    flex: 1 1 100%;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 420px) {
+  .story-scene {
+    padding-inline: 16px;
+  }
+
+  .story-navigator {
+    gap: 5px;
+    padding-inline: 7px;
+  }
+
+  .story-navigator .scene-dots {
+    max-width: 36vw;
+  }
+
+  .story-navigator .counter {
+    font-size: 11px;
+  }
+
+  .opening-copy h1,
+  .historian-copy h2,
+  .history-intro h2,
+  .bridge-copy h2,
+  .origin-heading h2,
+  .pillars-heading h2,
+  .gateway-copy h2 {
+    font-size: clamp(34px, 10.5vw, 44px);
+  }
+
+  .historian-image {
+    max-width: 340px;
+  }
+
+  .portrait-frame {
+    min-height: 220px;
+    height: 36svh;
+  }
+
+  .category-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .platform-header-copy small {
+    display: none;
+  }
+
+  .platform-back {
+    font-size: 11px;
+  }
+
+  .platform-main {
+    padding-inline: 14px;
+  }
+
+  .platform-nav button {
+    padding-inline: 10px;
+    font-size: 11px;
+  }
+
+  .platform-welcome {
+    padding-inline: 17px;
+  }
+
+  .chat-demo {
+    min-height: 400px;
+    height: 66svh;
+  }
+
+  .chat-safety {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  .story-scene {
+    padding-top: 78px;
+    padding-bottom: 76px;
+  }
+
+  .opening-layout,
+  .platform-gateway {
+    min-height: 0;
+  }
+
+  .opening-art,
+  .gateway-art {
+    min-height: 310px;
+    height: 55vh;
+  }
+
+  .hero-grid {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-shell,
+  .platform-nav {
+    scroll-behavior: auto;
+  }
+}
+
+/* Visual consistency and accessible interaction states. */
+:root {
+  color-scheme: light;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.story-topbar .brand img {
+  height: 48px;
+}
+
+.story-navigator {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+}
+
+.story-scene {
+  scroll-snap-stop: always;
+}
+
+.historian-image,
+.pioneer-photo,
+.demo-project-art {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.historian-image img,
+.pioneer-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.historian-image figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.historian-image figcaption a,
+.pioneer-copy>a {
+  flex: 0 0 auto;
+  color: #713047;
+  text-underline-offset: 3px;
+}
+
+.pioneer-card,
+.profile-card,
+.demo-project,
+.platform-feature-card,
+.platform-quiz,
+.chat-demo {
+  border-radius: 14px;
+  box-shadow: 0 12px 34px rgba(53, 37, 43, .07);
+}
+
+.pioneer-card,
+.profile-card,
+.demo-project,
+.category-tile,
+.platform-feature-card,
+.pillar-card,
+.platform-quiz {
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.pioneer-card:hover,
+.profile-card:hover,
+.demo-project:hover {
+  border-color: #d9b3bf;
+  box-shadow: 0 18px 42px rgba(53, 37, 43, .11);
+  transform: translateY(-2px);
+}
+
+.platform-shell button,
+.story-app button,
+.story-app a,
+.platform-shell a,
+.platform-shell input,
+.platform-shell select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.platform-shell button:focus-visible,
+.platform-shell a:focus-visible,
+.platform-shell input:focus-visible,
+.platform-shell select:focus-visible,
+.story-app button:focus-visible,
+.story-app a:focus-visible {
+  outline: 3px solid #35252b;
+  outline-offset: 3px;
+  position: relative;
+  z-index: 2;
+}
+
+.platform-nav button:hover,
+.platform-link:hover,
+.gateway-replay:hover,
+.back-directory:hover,
+.platform-footer>button:hover {
+  color: #713047;
+}
+
+.platform-nav button {
+  min-height: 48px;
+}
+
+.platform-cta,
+.platform-solid,
+.platform-outline,
+.story-button,
+.gateway-replay,
+.platform-link,
+.back-directory,
+.platform-footer>button {
+  min-height: 44px;
+}
+
+.profile-modal-backdrop {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.profile-modal {
+  width: min(520px, 100%);
+  border: 1px solid rgba(142, 59, 90, .12);
+}
+
+.chat-demo {
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+}
+
+.message-row,
+.message-bubble,
+.platform-page-heading,
+.platform-quiz-feedback {
+  min-width: 0;
+}
+
+.message-bubble p,
+.profile-card>p,
+.demo-project-copy p,
+.future-panel p,
+.platform-page-heading>p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .story-topbar .brand img {
+    height: 39px;
+  }
+
+  .story-navigator {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+  }
+
+  .platform-nav-wrap {
+    top: 62px;
+  }
+
+  .chat-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .platform-cta,
+  .platform-solid,
+  .platform-outline,
+  .story-button,
+  .platform-nav button,
+  .conversation-row,
+  .back-directory {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .platform-header {
+    padding-inline: 9px;
+    gap: 7px;
+  }
+
+  .platform-logo img {
+    max-width: 30vw;
+  }
+
+  .platform-header-copy {
+    padding-left: 7px;
+  }
+
+  .platform-header-copy span {
+    letter-spacing: .08em;
+  }
+
+  .platform-back {
+    gap: 4px;
+    font-size: 10px;
+  }
+}
+
+/* Slightly larger brand marks for clearer recognition across the site. */
+.story-topbar .brand img {
+  height: 62px;
+}
+
+.hero-brand img {
+  height: 56px;
+}
+
+.closing-brand img {
+  height: 52px;
+}
+
+.platform-header .platform-logo img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 760px) {
+  .story-topbar .brand img {
+    height: 49px;
+  }
+
+  .hero-brand img {
+    height: 50px;
+  }
+
+  .closing-brand img {
+    height: 48px;
+  }
+
+  .platform-header .platform-logo img {
+    height: 46px;
+    max-width: min(38vw, 160px);
+  }
+}
+
+@media (max-width: 380px) {
+  .platform-header .platform-logo img {
+    max-width: 34vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .pioneer-card:hover,
+  .profile-card:hover,
+  .demo-project:hover {
+    transform: none;
+  }
+}
+
+/* Keep supporting copy readable while retaining a refined editorial hierarchy. */
+.pioneer-copy>p,
+.platform-page-heading>p:last-child,
+.platform-welcome>div:first-child>p:not(.platform-kicker),
+.platform-feature-card>p:not(.platform-kicker),
+.profile-card>p:not(.profile-demo),
+.demo-project-copy>p,
+.future-panel p,
+.safety-banner,
+.platform-empty,
+.platform-quiz-feedback,
+.platform-quiz-top,
+.platform-quiz-footer,
+.platform-quiz-finished>p:not(.platform-kicker),
+.message-bubble p,
+.chat-safety,
+.chat-local-note {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.platform-kicker,
+.profile-demo,
+.pioneer-meta,
+.pioneer-copy>a,
+.future-tag,
+.chat-demo-label,
+.message-bubble>span,
+.message-bubble time,
+.fiction-badge,
+.conversation-info small,
+.conversation-info>span,
+.chat-person>div>small,
+.platform-footer>span {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.profile-role,
+.skill-list span,
+.conversation-info b,
+.chat-person>div>b,
+.platform-footer>button,
+.platform-outline,
+.profile-card-actions .platform-solid,
+.demo-project-art small {
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .story-eyebrow {
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .1em;
+  }
+
+  .opening-caption,
+  .opening-index,
+  .bridge-archive>span,
+  .bridge-now>small,
+  .origin-stamp>span,
+  .origin-tags span,
+  .story-navigator .counter {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .conversation-info b,
+  .chat-person>div>b {
+    font-size: 14px;
+  }
+
+  .conversation-info small,
+  .conversation-info>span,
+  .chat-person>div>small,
+  .fiction-badge,
+  .message-bubble>span,
+  .message-bubble time,
+  .chat-demo-label,
+  .platform-footer>span {
+    font-size: 12px;
+  }
+
+  .skill-list span,
+  .profile-role,
+  .platform-outline,
+  .profile-card-actions .platform-solid,
+  .platform-quiz-top,
+  .platform-quiz-footer,
+  .platform-quiz-feedback,
+  .demo-project-art small {
+    font-size: 13px;
+  }
+
+  .safety-banner,
+  .platform-empty,
+  .platform-quiz-finished>p:not(.platform-kicker) {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
