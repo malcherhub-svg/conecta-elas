@@ -11,6 +11,7 @@ import {
   universeQuestions, universeStages,
 } from './universeData';
 import type { UniverseAreaId, UniverseOption } from './universeData';
+import { assetUrl } from './assets';
 
 type View = 'intro' | 'question' | 'reveal' | 'result';
 type Props = {
@@ -180,7 +181,7 @@ export default function UniverseGame({ open, onExit, onExploreProjects, onMeetPr
     <div className="universe-backdrop" aria-hidden="true"><i/><i/><i/><i/><span className="universe-nebula nebula-a"/><span className="universe-nebula nebula-b"/></div>
     <header className="universe-topbar">
       <button ref={exitButton} className="universe-return" onClick={onExit}><ArrowLeft size={17}/> Voltar para Projetos</button>
-      <a className="universe-brand" href="#plataforma" aria-label="Conecta Elas"><img src="/assets/logo-conecta-elas.png" alt="Logo Conecta Elas"/></a>
+      <a className="universe-brand" href="#plataforma" aria-label="Conecta Elas"><img src={assetUrl('/assets/logo-conecta-elas.png')} alt="Logo Conecta Elas"/></a>
       <button className="universe-restart" onClick={restart} aria-label="Reiniciar a experiência"><RotateCcw size={16}/><span>Reiniciar</span></button>
     </header>
 

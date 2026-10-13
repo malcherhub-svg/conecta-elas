@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
+import { assetUrl } from './assets';
 
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
@@ -27,7 +28,7 @@ describe('Conecta Elas story and platform',()=>{
     fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 2/}));
     expect(screen.getByRole('heading',{name:'Marie Curie'})).toBeInTheDocument();
     expect(screen.getAllByText(/NÃO É UMA CITAÇÃO HISTÓRICA/)).toHaveLength(3);
-    expect(screen.getByRole('img',{name:/Retrato de Marie/})).toHaveAttribute('src','/images/marie-curie.jpg');
+    expect(screen.getByRole('img',{name:/Retrato de Marie/})).toHaveAttribute('src',assetUrl('/images/marie-curie.jpg'));
   });
 
   it('filters professional profiles by search and category',()=>{

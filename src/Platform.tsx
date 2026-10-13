@@ -3,13 +3,14 @@ import type { FormEvent } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, BriefcaseBusiness, ChevronRight, CircleHelp, Code2, Compass, MessageCircle, RotateCcw, Search, Send, ShieldCheck, Sparkles, Users, X } from 'lucide-react';
 import { conversations as initialConversations, demoProjects, professionalCategories, professionals } from './storyData';
 import UniverseGame from './UniverseGame';
+import { assetUrl } from './assets';
 import { universeAreas } from './universeData';
 import type { UniverseAreaId } from './universeData';
 
 type Tab='discover'|'professionals'|'projects'|'chat'|'opportunities';
 type Props={initialTab?:Tab;onReturn:()=>void};
 const tabs:{id:Tab;label:string;icon:React.ReactNode}[]=[{id:'discover',label:'Comunidade',icon:<Compass/>},{id:'professionals',label:'Profissionais',icon:<Users/>},{id:'projects',label:'Projetos',icon:<BookOpen/>},{id:'chat',label:'Chat demonstrativo',icon:<MessageCircle/>},{id:'opportunities',label:'Oportunidades',icon:<BriefcaseBusiness/>}];
-const Logo=()=> <a className="platform-logo" href="#plataforma" aria-label="Conecta Elas"><img src="/assets/logo-conecta-elas.png" alt="Logo Conecta Elas"/></a>;
+const Logo=()=> <a className="platform-logo" href="#plataforma" aria-label="Conecta Elas"><img src={assetUrl('/assets/logo-conecta-elas.png')} alt="Logo Conecta Elas"/></a>;
 
 export default function Platform({initialTab='discover',onReturn}:Props){
  const [tab,setTab]=useState<Tab>(initialTab),[category,setCategory]=useState('Todas'),[search,setSearch]=useState(''),[profile,setProfile]=useState<(typeof professionals)[number]|null>(null),[chatId,setChatId]=useState('ana'),[mobileChat,setMobileChat]=useState(false),[threads,setThreads]=useState(()=>structuredClone(initialConversations)),[draft,setDraft]=useState(''),[chatNotice,setChatNotice]=useState(''),[universeOpen,setUniverseOpen]=useState(false),[projectFocusArea,setProjectFocusArea]=useState<UniverseAreaId|null>(null),[focusedProfessionalCategories,setFocusedProfessionalCategories]=useState<string[]|null>(null),[professionalFocusNote,setProfessionalFocusNote]=useState('');
