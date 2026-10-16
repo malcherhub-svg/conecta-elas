@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 import { assetUrl } from './assets';
+import { pioneers, storyChapters } from './storyData';
 
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
@@ -12,9 +13,9 @@ function enterPlatform(){
 }
 
 describe('Conecta Elas story and platform',()=>{
-  it('presents nine narrative chapters before the independent platform',()=>{
+  it('presents every narrative chapter before the independent platform',()=>{
     render(<App/>);
-    expect(screen.getAllByRole('region')).toHaveLength(9);
+    expect(screen.getAllByRole('region')).toHaveLength(storyChapters.length);
     expect(screen.getByRole('heading',{name:/O futuro também/})).toBeInTheDocument();
     fireEvent.keyDown(window,{key:'End'});
     expect(screen.getByText(/Sua próxima inspiração pode estar/)).toBeInTheDocument();
@@ -27,7 +28,7 @@ describe('Conecta Elas story and platform',()=>{
     fireEvent.click(screen.getByRole('button',{name:'Abrir capítulos'}));
     fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 2/}));
     expect(screen.getByRole('heading',{name:'Marie Curie'})).toBeInTheDocument();
-    expect(screen.getAllByText(/NÃO É UMA CITAÇÃO HISTÓRICA/)).toHaveLength(3);
+    expect(screen.getAllByText(/NÃO É UMA CITAÇÃO HISTÓRICA/)).toHaveLength(pioneers.length);
     expect(screen.getByRole('img',{name:/Retrato de Marie/})).toHaveAttribute('src',assetUrl('/images/marie-curie.jpg'));
   });
 

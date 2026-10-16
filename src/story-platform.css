@@ -11,3 +11,16 @@
 /* The app shell is intentionally non-scrolling for the horizontal story. Give the platform its own vertical scroll container. */
 .platform-shell{height:100dvh;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y}
 
+
+.historian-image figcaption button,.origin-view-button{display:inline-flex;align-items:center;gap:5px;border:0;background:none;padding:0;color:var(--wine);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.origin-modal-backdrop{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:24px;background:#24151dcc;backdrop-filter:blur(5px)}.origin-modal{position:relative;display:grid;grid-template-columns:minmax(210px,.8fr) 1.2fr;gap:30px;width:min(850px,100%);max-height:min(82vh,720px);overflow:auto;padding:30px;background:var(--cream);border:1px solid #fff;border-radius:18px;box-shadow:0 28px 90px #24151d66}.origin-modal>img{width:100%;height:100%;max-height:490px;object-fit:cover;border-radius:10px}.origin-modal-copy{align-self:center}.origin-modal-copy h2{margin:8px 0 16px;color:var(--wine);font:500 clamp(32px,5vw,54px)/1.05 var(--serif);letter-spacing:-.04em}.origin-modal-bio{color:var(--ink);font-size:14px;line-height:1.75}.origin-modal-copy>a{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--wine);font-size:12px;font-weight:700}.origin-modal-close{position:absolute;top:10px;right:12px;z-index:1;width:36px;height:36px;border:0;border-radius:50%;background:#fff7f1;color:var(--wine);font-size:27px;line-height:1;cursor:pointer}.origin-view-button{font-size:8px}@media(max-width:650px){.origin-modal-backdrop{padding:12px}.origin-modal{grid-template-columns:1fr;gap:14px;padding:19px;max-height:90vh}.origin-modal>img{height:220px;max-height:none}.origin-modal-copy h2{font-size:36px}.origin-modal-bio{font-size:13px}}
+
+
+/* Refinements for scientist profile navigation, attribution, accessibility and mobile reading. */
+.story-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.historian-image figcaption{align-items:flex-start;flex-wrap:wrap;line-height:1.5}
+.historian-image figcaption span{max-width:78%;line-height:1.5}
+.origin-image-credit{margin:14px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.pioneer-back-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:8px 0;border:0;background:none;color:var(--wine);font:inherit;font-size:12px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.historian-image figcaption button:focus-visible,.origin-view-button:focus-visible,.pioneer-back-link:focus-visible,.origin-modal-close:focus-visible,.story-menu button:focus-visible{outline:3px solid var(--wine);outline-offset:4px;border-radius:4px}
+@media(max-width:760px){.historian-image figcaption{font-size:8px}.historian-copy .story-kicker{font-size:8px}.historian-years{font-size:9px}.historian-bio{font-size:13px;line-height:1.75}.pioneer-meta{font-size:8px}.pioneer-copy>p{font-size:9px}.origin-image-credit{font-size:11px}}
+@media(max-width:390px){.historian-copy h2{font-size:40px}.historian-bio{font-size:12px}.pioneer-copy>p{font-size:9px}.historian-image figcaption{font-size:8px}}
