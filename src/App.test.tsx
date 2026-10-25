@@ -7,9 +7,7 @@ import { pioneers, storyChapters } from './storyData';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
 function enterPlatform(){
-  fireEvent.click(screen.getByRole('button',{name:'Abrir capítulos'}));
-  fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 9/}));
-  fireEvent.click(screen.getByRole('button',{name:'Explorar a comunidade'}));
+  fireEvent.click(screen.getByRole('button',{name:'Pular apresentação'}));
 }
 
 describe('Conecta Elas story and platform',()=>{
@@ -18,18 +16,22 @@ describe('Conecta Elas story and platform',()=>{
     expect(screen.getAllByRole('region')).toHaveLength(storyChapters.length);
     expect(screen.getByRole('heading',{name:/O futuro também/})).toBeInTheDocument();
     fireEvent.keyDown(window,{key:'End'});
-    expect(screen.getByText(/Sua próxima inspiração pode estar/)).toBeInTheDocument();
+    expect(screen.getByRole('heading',{name:/Explore o que você pode criar/})).toBeInTheDocument();
     enterPlatform();
     expect(screen.getByRole('navigation',{name:'Navegação da plataforma'})).toBeInTheDocument();
   });
 
-  it('shows historical profiles and clearly marks inspirational phrases',()=>{
+  it('shows Ada Lovelace and the three technology pioneers with source links',()=>{
     render(<App/>);
     fireEvent.click(screen.getByRole('button',{name:'Abrir capítulos'}));
     fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 2/}));
-    expect(screen.getByRole('heading',{name:'Marie Curie'})).toBeInTheDocument();
-    expect(screen.getAllByText(/NÃO É UMA CITAÇÃO HISTÓRICA/)).toHaveLength(pioneers.length);
-    expect(screen.getByRole('img',{name:/Retrato de Marie/})).toHaveAttribute('src',assetUrl('/images/marie-curie.jpg'));
+    expect(screen.getByRole('heading',{name:/Ada Lovelace/})).toBeInTheDocument();
+    expect(screen.getByRole('img',{name:/Retrato pintado de Ada/})).toHaveAttribute('src',assetUrl('/images/ada-lovelace.jpg'));
+    fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 3/}));
+    for (const pioneer of pioneers) {
+      expect(screen.getByRole('heading',{name:pioneer.name})).toBeInTheDocument();
+    }
+    expect(screen.getAllByRole('link',{name:/Fonte e créditos da imagem/}).map(link=>link.getAttribute('href'))).toEqual(pioneers.map(p=>p.source));
   });
 
   it('filters professional profiles by search and category',()=>{

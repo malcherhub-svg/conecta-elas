@@ -28,7 +28,7 @@ export const universeStages: { id: UniverseStageId; label: string; range: [numbe
   { id: 'curiosity', label: 'Sua curiosidade', range: [0, 1] },
   { id: 'problem-solving', label: 'Como você resolve problemas', range: [2, 3] },
   { id: 'future', label: 'Sua forma de imaginar o futuro', range: [4, 5] },
-  { id: 'impact', label: 'Ciência e impacto', range: [6, 7] },
+  { id: 'impact', label: 'Tecnologia e impacto', range: [6, 7] },
   { id: 'creation', label: 'Seu estilo de criação', range: [8, 9] },
 ];
 
@@ -83,23 +83,23 @@ export const universeAreas: Record<UniverseAreaId, {
     projectCategories: ['segurança', 'cibersegurança'], professionalCategories: ['Segurança da informação'],
   },
   research: {
-    name: 'Ciências e pesquisa', icon: 'research',
+    name: 'Pesquisa em tecnologia', icon: 'research',
     phrase: 'Não tenha medo de perguntar o que ninguém explicou ainda.',
     description: 'Você pode gostar de formular perguntas, testar hipóteses, observar resultados e ampliar o conhecimento.',
     mission: 'Escolha uma pergunta científica, formule uma hipótese e planeje um experimento seguro para investigá-la.',
     interests: ['Método científico', 'Investigação', 'Experimentação'],
-    projectCategories: ['pesquisa', 'ciência'], professionalCategories: ['Pesquisa científica', 'Matemática e física'],
+    projectCategories: ['dados', 'software', 'tecnologia'], professionalCategories: ['Ciência de dados', 'Inteligência artificial'],
   },
   environmental: {
-    name: 'Tecnologia ambiental', icon: 'leaf',
+    name: 'Tecnologia sustentavel', icon: 'leaf',
     phrase: 'Use suas ideias para construir um futuro que vale a pena preservar.',
     description: 'Você pode gostar de combinar ciência e tecnologia para compreender problemas ambientais e investigar soluções sustentáveis.',
     mission: 'Escolha um problema ambiental local e proponha como dados, sensores ou um aplicativo poderiam ajudar a monitorá-lo.',
     interests: ['Sustentabilidade', 'Sensores e monitoramento', 'Ciência ambiental'],
-    projectCategories: ['ambiental', 'sustentabilidade'], professionalCategories: ['Pesquisa científica', 'Engenharia'],
+    projectCategories: ['sensores', 'engenharia', 'tecnologia'], professionalCategories: ['Engenharia'],
   },
   management: {
-    name: 'Gestão de tecnologia', icon: 'plan',
+    name: 'Gestao de produtos digitais', icon: 'plan',
     phrase: 'Uma grande ideia ganha força quando encontra um caminho para acontecer.',
     description: 'Você pode gostar de organizar projetos, reunir pessoas, definir prioridades e transformar objetivos em resultados concretos.',
     mission: 'Monte um plano simples para um projeto tecnológico, com objetivo, tarefas, responsáveis e etapas.',
@@ -152,7 +152,7 @@ export const universeQuestions: UniverseQuestion[] = [
     ],
   },
   {
-    id: 5, stage: 'future', prompt: 'Qual resultado deixaria você mais orgulhosa?',
+    id: 5, stage: 'future', prompt: 'Qual resultado de um projeto tecnológico deixaria você mais orgulhosa?',
     options: [
       option('Ver pessoas utilizando algo que você programou.', 'code', { software: 2, management: .45 }, { software: 'Você se imagina criando uma ferramenta que chega às pessoas.', management: 'Você também valoriza ver uma ideia virar realidade.' }),
       option('Descobrir uma informação importante que estava escondida nos dados.', 'research', { research: 2, 'data-ai': .8 }, { research: 'Uma descoberta obtida com evidências parece especialmente significativa para você.', 'data-ai': 'Você também mostrou afinidade com padrões e informações.' }),

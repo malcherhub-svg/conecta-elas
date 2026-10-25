@@ -46,6 +46,7 @@ export default function UniverseGame({ open, onExit, onExploreProjects, onMeetPr
   const [manualCopy, setManualCopy] = useState(false);
   const [scoreAnnounce, setScoreAnnounce] = useState('');
   const exitButton = useRef<HTMLButtonElement>(null);
+  const questionHeading = useRef<HTMLHeadingElement>(null);
   const timer = useRef<number | null>(null);
 
   const results = useMemo(() => calculateUniverseResults(answers), [answers]);
@@ -87,6 +88,10 @@ export default function UniverseGame({ open, onExit, onExploreProjects, onMeetPr
       document.removeEventListener('keydown', keyHandler);
     };
   }, [open, onExit, howOpen]);
+
+  useEffect(() => {
+    if (open && view === 'question') questionHeading.current?.focus();
+  }, [open, view, questionIndex]);
 
   useEffect(() => () => {
     if (timer.current !== null) window.clearTimeout(timer.current);
@@ -210,11 +215,11 @@ export default function UniverseGame({ open, onExit, onExploreProjects, onMeetPr
 
     {view === 'question' && <main className="universe-main universe-question-view" key={`question-${questionIndex}`}>
       <div className="universe-progress-head"><div><span className="universe-kicker">SUA JORNADA</span><b>Etapa {universeStages.findIndex((stage) => stage.id === currentStage.id) + 1} de 5 <i>·</i> {currentStage.label}</b></div><span className="universe-question-count">Pergunta <b>{String(questionIndex + 1).padStart(2, '0')}</b> <i>/</i> 10</span></div>
-      <div className="universe-progress-track" role="progressbar" aria-label="Progresso da jornada" aria-valuemin={0} aria-valuemax={10} aria-valuenow={completeCount}><span style={{ width: `${progress}%` }}/></div>
+      <div className="universe-progress-track" role="progressbar" aria-label="Progresso da jornada" aria-valuemin={0} aria-valuemax={10} aria-valuenow={Math.round(progress / 10)} aria-valuetext={`${Math.round(progress)}% concluído`}><span style={{ width: `${progress}%` }}/></div>
       <nav className="universe-stages" aria-label="Etapas da jornada">{universeStages.map((stage, index) => <button key={stage.id} disabled={index > universeStages.findIndex((item) => item.id === currentStage.id)} className={`${stage.id === currentStage.id ? 'active' : ''} ${stageDone(stage.id) ? 'complete' : ''}`} onClick={() => setQuestionIndex(stage.range[0])}><span>{stageDone(stage.id) ? <Check size={13}/> : `0${index + 1}`}</span><small>{stage.label}</small></button>)}</nav>
       <section className="universe-question-card" aria-labelledby="universe-question-title">
         <p className="universe-question-overline"><span>UMA PERGUNTA PARA EXPLORAR</span><i>✧</i></p>
-        <h2 id="universe-question-title">{question.prompt}</h2>
+        <h2 ref={questionHeading} id="universe-question-title" tabIndex={-1}>{question.prompt}</h2>
         <p className="universe-select-hint">Escolha a alternativa que mais desperta sua curiosidade. Não existe resposta certa ou errada.</p>
         <div className="universe-options" role="group" aria-label={`Alternativas da pergunta ${questionIndex + 1}`}>
           {question.options.map((choice, optionIndex) => { const Icon = optionIcons[choice.icon]; return <button key={`${question.id}-${optionIndex}`} className={`universe-option ${selected === optionIndex ? 'selected' : ''}`} aria-pressed={selected === optionIndex} onClick={() => choose(optionIndex)}><span className="universe-option-icon"><Icon size={20}/></span><span className="universe-option-label">{choice.label}</span><span className="universe-option-check">{selected === optionIndex ? <Check size={17}/> : String.fromCharCode(65 + optionIndex)}</span></button>; })}

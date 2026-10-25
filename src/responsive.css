@@ -636,12 +636,50 @@ svg {
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-.pioneer-card:hover,
 .profile-card:hover,
 .demo-project:hover {
   border-color: #d9b3bf;
   box-shadow: 0 18px 42px rgba(53, 37, 43, .11);
   transform: translateY(-2px);
+}
+
+/* Pioneer cards are editorial content, so they no longer animate like controls. */
+.pioneer-card,
+.pioneer-card:hover {
+  transform: none;
+  cursor: default;
+}
+
+.pioneer-card .pioneer-photo img,
+.pioneer-card:hover .pioneer-photo img {
+  transform: none;
+}
+
+.story-scroll-hint {
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 13px;
+  border: 1px solid #c9a8b1;
+  border-radius: 8px;
+  background: #fffaf6;
+  color: #543741;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.story-track {
+  cursor: grab;
+}
+
+.story-track:active {
+  cursor: grabbing;
+}
+
+.universe-question-card h2:focus {
+  outline: 3px solid #8e3b5a;
+  outline-offset: 5px;
+  border-radius: 2px;
 }
 
 .platform-shell button,
@@ -930,4 +968,53 @@ svg {
     font-size: 14px;
     line-height: 1.55;
   }
+}
+/* Clear demo status and strengthen small-screen readability. */
+:root { --muted: #66595b; }
+.demo-notice { display:flex; align-items:center; gap:9px; margin: 10px 0 18px; padding: 11px 14px; border:1px solid #d9c7c4; border-radius:10px; background:#fffdfa; color:#35252b; font-size:14px; line-height:1.5; }
+.demo-notice svg { flex:none; color:#713047; }
+.profile-demo, .platform-kicker, .chat-demo-label, .future-tag { color:#5f4c52; }
+.platform-nav button:focus-visible, .platform-shell button:focus-visible, .platform-shell a:focus-visible, .platform-shell input:focus-visible, .platform-shell select:focus-visible { outline:3px solid #35252b; outline-offset:3px; }
+@media(max-width:760px) {
+  .demo-notice { margin:8px 0 16px; font-size:14px; }
+  .story-scene { overflow-y:auto; overscroll-behavior-y:contain; }
+  .story-inner { padding-bottom:30px; }
+  .story-navigator { max-width:calc(100vw - 12px); }
+  .story-navigator .scene-dots { overflow-x:auto; }
+  .opening-copy .story-button { width:100%; }
+}
+
+.story-app { --muted: #66595b; }
+
+@media(max-width:760px) {
+  .story-kicker, .story-eyebrow, .story-scroll-hint, .header-hint { font-size:12px; line-height:1.5; }
+  .future-disclaimer { font-size:13px; line-height:1.5; }
+  .story-button { font-size:14px; }
+}
+
+/* Escurece o conjunto da interface sem alterar a relação entre as cores. */
+#root { filter: brightness(.96); }
+
+/* Learning paths, hands-on projects and demonstrative profile details. */
+.study-path-section { margin-top: 36px; }
+.study-path-intro { max-width: 760px; margin: 10px 0 18px; color: #66595b; font-size: 15px; line-height: 1.65; }
+.study-path-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+.study-path-card { min-width: 0; padding: 18px; border: 1px solid #eaded8; border-radius: 12px; background: #fffdfa; }
+.study-path-card h3 { margin: 0 0 8px; font-size: 19px; }
+.study-path-card p { font-size: 14px; line-height: 1.55; }
+.study-path-card .skill-list { margin: 8px 0 12px; }
+.study-path-card a, .project-guide a { display: inline-flex; align-items: center; gap: 6px; color: #713047; font-size: 14px; line-height: 1.5; text-underline-offset: 3px; }
+.profile-tools, .profile-project { font-size: 13px; line-height: 1.5; }
+.project-guide { margin-top: 12px; padding-top: 11px; border-top: 1px solid #eaded8; }
+.project-guide summary { min-height: 44px; display: flex; align-items: center; color: #713047; font-weight: 700; cursor: pointer; }
+.project-guide ol { padding-left: 22px; font-size: 14px; line-height: 1.6; }
+.project-guide li + li { margin-top: 7px; }
+.project-guide pre { max-width: 100%; overflow: auto; padding: 13px; border-radius: 8px; background: #f1e9e4; color: #35252b; font: 13px/1.55 Consolas, monospace; white-space: pre; }
+@media(max-width:760px) {
+  .study-path-section { margin-top: 28px; }
+  .study-path-grid { grid-template-columns: minmax(0, 1fr); }
+  .study-path-card { padding: 16px; }
+  .study-path-card p, .project-guide ol { font-size: 15px; }
+  .profile-tools, .profile-project { font-size: 14px; }
+  .project-guide pre { font-size: 12px; }
 }
