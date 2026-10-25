@@ -21,15 +21,17 @@ describe('Conecta Elas story and platform',()=>{
     expect(screen.getByRole('navigation',{name:'Navegação da plataforma'})).toBeInTheDocument();
   });
 
-  it('shows Ada Lovelace and the three technology pioneers with source links',()=>{
+  it('shows Ada Lovelace and five science and technology pioneers with source links',()=>{
     render(<App/>);
     fireEvent.click(screen.getByRole('button',{name:'Abrir capítulos'}));
     fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 2/}));
     expect(screen.getByRole('heading',{name:/Ada Lovelace/})).toBeInTheDocument();
     expect(screen.getByRole('img',{name:/Retrato pintado de Ada/})).toHaveAttribute('src',assetUrl('/images/ada-lovelace.jpg'));
     fireEvent.click(screen.getByRole('button',{name:/Ir ao capítulo 3/}));
+    expect(screen.getByRole('heading',{name:/Cinco trajetórias/})).toBeInTheDocument();
     for (const pioneer of pioneers) {
       expect(screen.getByRole('heading',{name:pioneer.name})).toBeInTheDocument();
+      expect(screen.getByRole('img',{name:pioneer.alt})).toHaveAttribute('src',assetUrl(pioneer.image));
     }
     expect(screen.getAllByRole('link',{name:/Fonte e créditos da imagem/}).map(link=>link.getAttribute('href'))).toEqual(pioneers.map(p=>p.source));
   });

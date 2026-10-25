@@ -2,13 +2,15 @@
 
 ## Escopo atual
 
-O site apresenta mulheres na tecnologia e uma demonstração de comunidade. A narrativa biográfica atual aborda Ada Lovelace, Hedy Lamarr, Grace Hopper e Dorothy Vaughan. Outras trajetórias de ciência, medicina, matemática sem vínculo direto com computação e áreas não tecnológicas foram retiradas da experiência visível.
+O site apresenta mulheres na ciência e tecnologia e uma demonstração de comunidade. A narrativa biográfica aborda Marie Curie, Ada Lovelace, Katherine Johnson, Hedy Lamarr, Grace Hopper e Dorothy Vaughan.
 
 As abas demonstrativas cobrem software, dados e inteligência artificial, engenharia e robótica, design digital e cibersegurança. Perfis, projetos e conversas são fictícios; mensagens permanecem na sessão local. Não há inscrição, comunicação com profissionais, vagas ou oportunidades confirmadas. O resultado do minigame é exploratório e não recomenda carreira.
 
 ## Referências biográficas
 
 - [Ada Lovelace — Science Museum Group](https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace)
+- [Marie Curie — Nobel Prize](https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/)
+- [Katherine Johnson — NASA](https://www.nasa.gov/people/katherine-johnson/)
 - [Hedy Lamarr — Smithsonian Institution](https://dashboard.si.edu/newsdesk/snapshot/hedy-lamarr-golden-age-film-star-and-important-inventor)
 - [Grace Murray Hopper — Computer History Museum](https://computerhistory.org/profile/grace-murray-hopper/)
 - [Dorothy Vaughan — NASA](https://www.nasa.gov/people/dorothy-vaughan/)

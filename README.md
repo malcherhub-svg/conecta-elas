@@ -15,7 +15,7 @@ npm run dev
 
 ## Experiência
 
-- Sete capítulos sobre Ada Lovelace, Hedy Lamarr, Grace Hopper e Dorothy Vaughan, a proposta do Conecta Elas e os próximos passos.
+- Sete capítulos sobre Marie Curie, Ada Lovelace, Katherine Johnson, Hedy Lamarr, Grace Hopper e Dorothy Vaughan, a proposta do Conecta Elas e os próximos passos.
 - Atalhos na abertura para pular a narrativa, conhecer profissionais fictícias e abrir diretamente o minigame.
 - Navegação por menu, teclado, setas e indicadores, com controles responsivos e respeito a movimento reduzido.
 - Áreas demonstrativas focadas em tecnologia: software, dados e IA, engenharia e robótica, design digital e cibersegurança.
